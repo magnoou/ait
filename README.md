@@ -1,3 +1,20 @@
+Wasn't able to find a free IATA service to get all the airports info but I got some of them that is located in the assets folder (airports.json) which contains around 730+ airports in the US
+
+So to import them into the database run the following with the proper route for the file
+
+mongoimport --db test --collection airports --file airports.json --jsonArray
+
+Use npm install for the node modules to download 
+And run the project with the following command
+
+npm run dev
+
+I think everything needed got uploaded, if not let me know.
+
+
+
+
+
 # Airports
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.2.1.

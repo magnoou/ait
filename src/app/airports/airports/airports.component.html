@@ -1,0 +1,43 @@
+<!-- TODO : found error displaying [Object ocject] in inputs when page loads but ran out of time to dig into it -->
+<br>
+
+Search by:
+<input id="codeSearchR" class="toggle toggle-left" type="radio" value="true" name="byCodeSearch" [checked]="byCodeSearch" (change)="changeSearch()">
+<label for="codeSearchR" class="btn" [ngClass]="(byCodeSearch)?'btnActive':''">Code</label>
+<input id="nameSearchR" class="toggle toggle-right" type="radio" value="false" name="byCodeSearch" [checked]="!byCodeSearch" (change)="changeSearch()">
+<label for="nameSearchR" class="btn" [ngClass]="(!byCodeSearch)?'btnActive':''">Name</label>
+<div class="searchWrap">
+	<div class="apSearch">
+		<p>Search origin airport</p>
+		<md-input-container>
+		   <input mdInput [formControl]="myControl" [mdAutocomplete]="auto" (click)="clearAp($event)" [(ngModel)]="originAp" value="{{originAp.name}}">
+		</md-input-container>
+
+		<md-autocomplete #auto="mdAutocomplete">
+		   <md-option (click)="apSelected($event)" placeholder="Search..." *ngFor="let option of filteredOptions | async" [value]="option">
+		      {{ byCodeSearch?option.code:option.name }}
+		   </md-option>
+		</md-autocomplete>
+	</div>
+	<div class="apSearch">
+		<p>Search destiny airport</p>
+		<md-input-container>
+		   <input mdInput [formControl]="myControl2" [mdAutocomplete]="auto2" (click)="clearAp($event)" [(ngModel)]="destinationAp" value="{{destinationAp.name}}">
+		</md-input-container>
+
+		<md-autocomplete #auto2="mdAutocomplete">
+		   <md-option (click)="apSelected($event)" placeholder="Search..." *ngFor="let option of filteredOptions2 | async" [value]="option">
+		      {{ byCodeSearch?option.code:option.name }}
+		   </md-option>
+		</md-autocomplete>
+	</div>
+</div>
+
+<div class="distanceWrap">
+	<label *ngIf="distance!=''">Distance = {{distance}} N.M.</label>
+</div>
+
+
+<div #map id="map-container">
+
+</div>

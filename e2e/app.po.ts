@@ -5,7 +5,7 @@ export class AirportsPage {
     return browser.get('/');
   }
 
-  getParagraphText() {
-    return element(by.css('app-root h1')).getText();
+  getNavbarElement(n) {
+    return $$('app-root a').get(n).getText();
   }
 }
