@@ -93,6 +93,7 @@ export class AirportsComponent implements OnInit {
 	  					//this.options2.push(res[x].code);
 
 	  			}
+	  			console.log("POPTIÖN ",this.options);
 	  		} 
   		},
   		error => console.log("AIRPORT2 ",error)
@@ -102,6 +103,7 @@ export class AirportsComponent implements OnInit {
    }
 
 	apSelected(){
+		console.log("ORGI ",this.originAp);
 		//Fires map loading when both airports are selected
 	   	if (this.originAp && this.originAp.lat && this.destinationAp && this.destinationAp.lat){
 	   		this.firstAirportLat = this.originAp.lat;
